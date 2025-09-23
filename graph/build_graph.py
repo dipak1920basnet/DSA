@@ -11,17 +11,16 @@ class Graph:
         if not directed:
             self.matrix[to_][from_] = weight
 
-        # Print Matrix
+    # Print graph
 
-    def print_matrix(self):
+    def print_graph(self):
         for j in range(1, len(self.matrix)):
             print(self.matrix[j][1:])
 
 
 new_graph = Graph(4)
-# new_graph.build_matrix()
 new_graph.build_relation(1, 2, directed=True, weight=21)
 new_graph.build_relation(1, 3, directed=True, weight=31)
 new_graph.build_relation(2, 3, weight=20)
 new_graph.build_relation(2, 4, directed=True, weight=42)
-new_graph.print_matrix()
+new_graph.print_graph()
