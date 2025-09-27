@@ -25,9 +25,26 @@ class Graph:
                     self.graph[key[i]].append(key[j])
         print(self.graph)
 
-    
+    def topological_sort(self):
+        if not any(self.graph.values()):
+            self.build_graph()
+
+        taversal_list = []
+        keys = self.vertices
+
+        while keys != []:
+            for key in keys:
+                for new_key in keys:
+                    if key in self.graph[new_key]:
+                        break
+                else:
+                    taversal_list.append(key)
+                    keys.remove(key)
+        return taversal_list
+
 new_graph = Graph(vertices, adj_matrix)
 # new_graph.define_key()
-new_graph.build_graph()
+# new_graph.build_graph()
+print(new_graph.topological_sort())
 
                     
